@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Articles/articles.css" />
+
+    <title>CLUBCUESSY</title>
+  </head>
+
+  <header>
+    <div class="off-screen-menu">
+      <ul>
+        <li><a href="/HomePage/home.html">Home</a></li>
+        <li><a href="/Standards/standards.html">Standards of Movement</a></li>
+        <li>
+          <a href="/Upcoming-Events/upcomingevents.html">Upcoming Events</a>
+        </li>
+        <li><a href="/Articles/articles.html">Articles</a></li>
+        <li><a href="/Contact/contact.html">Contact</a></li>
+        <li><a href="/Archives/archives.html">Archive</a></li>
+      </ul>
+    </div>
+
+    <nav>
+      <h1>CLUBCUESSY</h1>
+      <h3><em>Based in Provo, UT</em></h3>
+      <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-title">Slide 1</div>
+                        <div class="slide-description">Welcome to the carousel</div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-title">Slide 2</div>
+                        <div class="slide-description">Smooth transitions</div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-title">Slide 3</div>
+                        <div class="slide-description">Beautiful gradients</div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-title">Slide 4</div>
+                        <div class="slide-description">Interactive controls</div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-title">Slide 5</div>
+                        <div class="slide-description">Fully responsive</div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button prev">‹</button>
+            <button class="carousel-button next">›</button>
+        </div>
+        <div class="carousel-dots"></div>
+    </div>
+
+    <!-- BLOG -->
+    <body>
+    <div id="mainPage">
+        <header>
+            <h1>My Blog</h1>
+            <p>Thoughts, stories, and ideas</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search articles by title, category, or content..."
+                    id="searchInput"
+                >
+                <button class="search-button" id="searchButton">Search</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="search-results-info" id="resultsInfo"></div>
+            
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+
+            <div class="no-results hidden" id="noResults">
+                <div class="no-results-icon">🔍</div>
+                <h2>No articles found</h2>
+                <p>Try adjusting your search terms</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="articlePage" class="hidden">
+
+        <div class="article-container">
+            <a href="#" class="back-link" id="backLink">← Back to all articles</a>
+            
+            <div class="article-header">
+                <span class="blog-category" id="articleCategory"></span>
+                <h1 class="article-title" id="articleTitle"></h1>
+                <div class="article-meta" id="articleMeta"></div>
+            </div>
+
+            <div class="article-body" id="articleBody">
+                <!-- Article content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    <p>&copy; 2026 CLUBCUESSY. All rights reserved.</p>
+    <div class="background-music">
+      <audio controls autoplay loop>
+        <source src="/HomePage/audio/clubcuessy.wav" type="audio/mpeg" />
+      </audio>
+    </div>
+  </footer>
+
+  <script src="/Articles/articles.js"></script>
+</html>
