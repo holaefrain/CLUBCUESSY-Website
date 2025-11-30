@@ -83,8 +83,7 @@ nav h3 {
 }
 
 /* Body */
-.standards-body {
-  margin: 5;
+body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
