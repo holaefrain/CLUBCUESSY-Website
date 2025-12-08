@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
   <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events</title>
     <link rel="stylesheet" href="/Payments/payments.css" />
-    <script src="https://js.stripe.com/v3/"></script>
-    <title>Payment - CLUBCUESSY</title>
+    <title>Upcoming Events</title>
   </head>
 
   <header>
@@ -14,16 +13,17 @@
       <ul>
         <li><a href="/HomePage/home.html">Home</a></li>
         <li><a href="/Standards/standards.html">Standards of Movement</a></li>
-        <li><a href="/Upcoming-Events/upcomingevents.html">Upcoming Events</a></li>
+        <li>
+          <a href="/Upcoming-Events/upcomingevents.html">Upcoming Events</a>
+        </li>
         <li><a href="/Articles/articles.html">Articles</a></li>
         <li><a href="/Contact/contact.html">Contact</a></li>
         <li><a href="/Archives/archives.html">Archive</a></li>
       </ul>
     </div>
 
-    <nav>
-      <a href="/HomePage/home.html"><h1>CLUBCUESSY</h1></a>
-      <h3><em>Based in Provo, UT</em></h3>
+   <nav>
+     <a href="/HomePage/home.html"><h1>CLUBCUESSY</h1></a>
       <div class="ham-menu">
         <span></span>
         <span></span>
@@ -32,112 +32,19 @@
     </nav>
   </header>
 
-  <body>
-    <div class="payment-container">
-      <div class="payment-header">
-        <h1>Complete Your Purchase</h1>
-        <p class="subtitle">Secure payment powered by Stripe</p>
-      </div>
-
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <h2>Order Summary</h2>
-        <div class="order-item">
-          <div class="item-details">
-            <span class="item-name">Event Ticket</span>
-            <span class="item-description">General Admission</span>
-          </div>
-          <span class="item-price">$25.00</span>
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <stripe-pricing-table pricing-table-id="prctbl_1Sc9LLQQ6SW4BdOnUWYcPQNA"
+    publishable-key="pk_live_51Sc7ojQQ6SW4BdOn3BU42HvvDJcsMUoETb8DqZtNa6f2bQ3F97430hF1fullr2AT5do5Glmu0PwjKy4FO2j8xav100J9NRPSdM">
+    </stripe-pricing-table>
+    
+    <footer>
+        <p>&copy; 2026 CLUBCUESSY. All rights reserved.</p>
+        <div class="background
+        -music">
+          <audio controls autoplay loop>
+            <source src="/HomePage/audio/clubcuessy.wav" type="audio/mpeg" />
+          </audio>
         </div>
-        <div class="order-total">
-          <span>Total</span>
-          <span class="total-amount">$25.00</span>
-        </div>
-      </div>
-
-      <!-- Payment Form -->
-      <form id="payment-form">
-        <div class="form-section">
-          <h3>Contact Information</h3>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-            />
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                required
-                placeholder="John"
-              />
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                required
-                placeholder="Doe"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="form-section">
-          <h3>Payment Details</h3>
-          
-          <div class="form-group">
-            <label for="card-element">Card Information</label>
-            <div id="card-element" class="stripe-element">
-              <!-- Stripe Card Element will be inserted here -->
-            </div>
-            <div id="card-errors" role="alert"></div>
-          </div>
-        </div>
-
-        <button type="submit" id="submit-button" class="payment-button">
-          <span id="button-text">Pay $25.00</span>
-          <div id="spinner" class="spinner hidden"></div>
-        </button>
-
-        <div class="payment-footer">
-          <p>🔒 Your payment information is secure and encrypted</p>
-        </div>
-      </form>
-
-      <!-- Success Message -->
-      <div id="payment-success" class="payment-message success-message hidden">
-        <div class="message-icon">✓</div>
-        <h2>Payment Successful!</h2>
-        <p>Thank you for your purchase. A confirmation email has been sent to your inbox.</p>
-        <a href="/HomePage/home.html" class="back-button">Return to Home</a>
-      </div>
-
-      <!-- Error Message -->
-      <div id="payment-error" class="payment-message error-message hidden">
-        <div class="message-icon">✕</div>
-        <h2>Payment Failed</h2>
-        <p id="error-text">Something went wrong. Please try again.</p>
-        <button onclick="resetForm()" class="back-button">Try Again</button>
-      </div>
-    </div>
-  </body>
-
-  <footer>
-    <p>&copy; 2026 CLUBCUESSY. All rights reserved.</p>
-  </footer>
-
-  <script src="/Payments/payments.js"></script>
+      </footer>
+      <script src="/Payments/payments.js"></script> 
 </html>
