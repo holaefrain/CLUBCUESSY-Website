@@ -1,16 +1,22 @@
 {
   "name": "clubcuessy-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CLUBCUESSY - Music event website based in Provo, UT",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/holaefrain/CLUBCUESSY-Website.git"
   },
-  "keywords": [],
+  "keywords": [
+    "music",
+    "events",
+    "clubcuessy"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -19,6 +25,7 @@
   },
   "homepage": "https://github.com/holaefrain/CLUBCUESSY-Website#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "stripe": "^20.0.0"
   }
 }
