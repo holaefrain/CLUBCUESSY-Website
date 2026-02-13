@@ -24,7 +24,7 @@
 }
 
 .video-overlay a img {
-  height: 600px;
+  height: 400px;
   width: auto;
 }
 
@@ -37,7 +37,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  scale: 1.5;
+  scale: 2;
 }
 
 @media (min-aspect-ratio: 9/16) {
@@ -91,6 +91,11 @@
 }
 .off-screen-menu.active {
   right: 0;
+}
+.off-screen-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
 }
 
 /* hamburger */
@@ -155,8 +160,6 @@ nav h3 {
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
   text-align: center;
   padding: 10px;
   bottom: 0;
@@ -166,7 +169,16 @@ footer {
 footer img {
   height: 80px;
   width: auto;
-
+}
+.copyright {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+.zoobieville-logo {
+  height: 80px;
+  width: auto;
+  scale: 1.30;
 }
 audio {
   display: none;

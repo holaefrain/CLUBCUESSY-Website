@@ -29,7 +29,7 @@ button {
   width: 400px;
   font-size: 40px;
   grid-row: 3;
-  overflow: hidden; /* Ensure no overflow */
+  overflow: hidden;
 }
 .img-box:hover {
   cursor: pointer;
@@ -37,9 +37,9 @@ button {
   transition: 0.3s ease;
 }
 img {
-  height: 100%; /* Adjust to fit the .img-box height */
-  width: auto; /* Maintain aspect ratio */
-  max-width: 100%; /* Prevent exceeding the .img-box width */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 @media (max-width: 600px) {
   body main {
@@ -68,6 +68,11 @@ img {
 }
 .off-screen-menu.active {
   right: 0;
+}
+.off-screen-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
 }
 
 /* hamburger */
