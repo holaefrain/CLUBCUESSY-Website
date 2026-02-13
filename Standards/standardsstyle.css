@@ -18,6 +18,11 @@
 .off-screen-menu.active {
   right: 0;
 }
+.off-screen-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+}
 
 /* hamburger */
 nav {
