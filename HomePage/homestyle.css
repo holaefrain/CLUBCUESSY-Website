@@ -22,15 +22,20 @@
   font-size: 95px;
   margin-bottom: 50px;
 }
-
-.video-overlay a img {
-  height: 400px;
-  width: auto;
+.video-overlay a {
+  font-size: 23px;
+  /* color: white; */
+  text-decoration: none;
+  /* border: 2px solid white; */
+  padding: 15px 25px;
+  border-radius: 50px;
+  transition: 0.3s ease;
 }
 
 .video-overlay a:hover {
-  cursor: pointer;
-  transition: 0.8s ease;
+  /* background-color: white; */
+  color: black;
+  transition: 0.3s ease;
 }
 .video-background {
   position: absolute;
