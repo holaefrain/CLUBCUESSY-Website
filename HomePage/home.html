@@ -6,7 +6,13 @@
     <link rel="stylesheet" href="/HomePage/homestyle.css" />
 
     <title>CLUBCUESSY</title>
+
   </head>
+
+  <!-- Enter screen overlay -->
+  <div id="enter-screen">
+    <button id="enter-btn" onclick="enterSite()">ENTER</button>
+  </div>
 
   <header>
     <div class="off-screen-menu">
@@ -39,7 +45,7 @@
     <div class="video-container">
       <div>
         <video autoplay muted loop plays-inline class="video-background">
-          <source src="vid/clubcuessy.mp4" type="video/mp4" /> 
+          <source src="vid/website-background-video.mp4" type="video/mp4" /> 
         </video>
       </div>
       <div class="video-overlay">
@@ -81,6 +87,21 @@
           />
         </a>
     </div>
+    <div style="position: fixed; left: -9999px;">
+      <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2193099458%3Fsecret_token%3Ds-rwj0ISFQ28x&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe>
+    </div>
   </footer>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src="/HomePage/home.js"></script>
+  <script>
+    const widget = SC.Widget(document.getElementById('sc-player'));
+
+    function enterSite() {
+      widget.bind(SC.Widget.Events.READY, () => {
+        widget.play();
+      });
+      document.getElementById('enter-screen').style.display = 'none';
+    }
+  </script>
 </html>

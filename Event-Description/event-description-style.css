@@ -38,7 +38,10 @@ nav h1 {
   text-align: right;
   text-decoration: none;
 }
-nav h1 a {
+nav a h1{
+  text-decoration: none;
+}
+nav a {
   text-decoration: none;
 }
 nav h3 {
