@@ -138,12 +138,25 @@ nav h3 {
 
 /* Footer */
 footer {
-  background-color: rgba(255, 255, 255, 0);
-  color: rgb(0, 0, 0);
   text-align: center;
   padding: 10px;
   bottom: 0;
   width: 100%;
+  z-index: -1;
+}
+footer img {
+  height: 80px;
+  width: auto;
+}
+.copyright {
+  margin-top: 10px;
+  font-size: 14px;
+  color: black;
+}
+.zoobieville-logo {
+  height: 80px;
+  width: auto;
+  scale: 1.30;
 }
 audio {
   display: none;
