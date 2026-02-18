@@ -218,3 +218,158 @@ audio {
   color: black;
   transition: 0.3s ease;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Video overlay adjustments */
+  .video-overlay h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+
+  .video-overlay a {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  /* Event poster image */
+  .video-overlay img {
+    width: 200px;
+    margin-bottom: 15px;
+  }
+
+  /* Navigation adjustments */
+  nav {
+    padding: 0.75rem;
+  }
+
+  nav h1 {
+    font-size: 32px;
+  }
+
+  nav h3 {
+    font-size: 12px;
+    margin: 10px;
+  }
+
+  /* Hamburger menu adjustments */
+  .ham-menu {
+    height: 40px;
+    width: 40px;
+  }
+
+  .ham-menu span {
+    height: 4px;
+  }
+
+  /* Off-screen menu adjustments */
+  .off-screen-menu {
+    max-width: 100%;
+    right: -100%;
+    font-size: 2rem;
+  }
+
+  .off-screen-menu a {
+    margin: 15px 0;
+  }
+
+  /* Footer adjustments */
+  footer {
+    padding: 8px;
+  }
+
+  footer img {
+    height: 60px;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  .logo {
+    height: 60px;
+    scale: 1.1;
+  }
+
+  /* Enter button adjustments */
+  #enter-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .video-overlay h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .video-overlay a {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+
+  /* Event poster image for small screens */
+  .video-overlay img {
+    width: 150px;
+    margin-bottom: 12px;
+  }
+
+  /* Navigation for extra small */
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  nav h3 {
+    font-size: 11px;
+    margin: 8px;
+  }
+
+  /* Hamburger menu for extra small */
+  .ham-menu {
+    height: 35px;
+    width: 35px;
+  }
+
+  .ham-menu span {
+    height: 3px;
+  }
+
+  /* Off-screen menu full width on small */
+  .off-screen-menu {
+    max-width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .off-screen-menu a {
+    margin: 12px 0;
+  }
+
+  /* Footer for small screens */
+  footer img {
+    height: 50px;
+  }
+
+  .copyright {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  .logo {
+    height: 50px;
+    scale: 1;
+  }
+
+  /* Enter button for small screens */
+  #enter-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+}

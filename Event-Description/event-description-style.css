@@ -160,10 +160,47 @@ main.event-description-container {
 }
 
 @media (max-width: 768px) {
+  /* Navigation adjustments */
+  nav {
+    padding: 0.75rem;
+  }
+
+  nav h1 {
+    font-size: 32px;
+  }
+
+  nav h3 {
+    font-size: 12px;
+    margin: 12px;
+  }
+
+  /* Hamburger menu adjustments */
+  .ham-menu {
+    height: 40px;
+    width: 40px;
+  }
+
+  .ham-menu span {
+    height: 4px;
+  }
+
+  /* Off-screen menu adjustments */
+  .off-screen-menu {
+    max-width: 100%;
+    right: -100%;
+    font-size: 2rem;
+  }
+
+  .off-screen-menu a {
+    margin: 15px 0;
+  }
+
+  /* Event description container */
   main.event-description-container {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    max-width: 100%;
   }
 
   .event-flyer {
@@ -173,10 +210,120 @@ main.event-description-container {
 
   .event-title {
     font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .event-body p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .buy-tickets-btn {
+    padding: 10px 25px;
+    font-size: 16px;
+  }
+
+  /* Footer adjustments */
+  footer {
+    padding: 8px;
+  }
+
+  footer img {
+    height: 60px;
+  }
+
+  .zoobieville-logo {
+    height: 60px;
+    scale: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  /* Navigation for extra small */
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  nav h3 {
+    font-size: 11px;
+    margin: 10px;
+  }
+
+  /* Hamburger menu for extra small */
+  .ham-menu {
+    height: 35px;
+    width: 35px;
+  }
+
+  .ham-menu span {
+    height: 3px;
+  }
+
+  /* Off-screen menu full width */
+  .off-screen-menu {
+    max-width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .off-screen-menu a {
+    margin: 12px 0;
+  }
+
+  /* Event description container for small screens */
+  main.event-description-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .event-flyer {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .event-flyer img {
+    border-radius: 6px;
+  }
+
+  .event-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .event-body {
+    margin-bottom: 20px;
   }
 
   .event-body p {
     font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .buy-tickets-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Footer for small screens */
+  footer {
+    padding: 6px;
+  }
+
+  footer img {
+    height: 50px;
+  }
+
+  .zoobieville-logo {
+    height: 50px;
+    scale: 1.2;
   }
 }
 

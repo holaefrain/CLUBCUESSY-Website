@@ -141,3 +141,158 @@ footer img {
 audio {
   display: none;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Navigation adjustments */
+  nav {
+    padding: 0.75rem;
+  }
+
+  nav h1 {
+    font-size: 32px;
+  }
+
+  nav h3 {
+    font-size: 12px;
+    margin: 12px 0 0 0;
+  }
+
+  /* Hamburger menu adjustments */
+  .ham-menu {
+    height: 40px;
+    width: 40px;
+  }
+
+  .ham-menu span {
+    height: 4px;
+  }
+
+  /* Off-screen menu adjustments */
+  .off-screen-menu {
+    max-width: 100%;
+    right: -100%;
+    font-size: 2rem;
+  }
+
+  .off-screen-menu a {
+    margin: 15px 0;
+  }
+
+  /* Body content adjustments */
+  .standards-body {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .standards-body h2 {
+    font-size: 28px;
+    margin-bottom: 1rem;
+  }
+
+  .standards-body h3 {
+    font-size: 20px;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .standards-body p {
+    font-size: 16px;
+  }
+
+  /* Footer adjustments */
+  footer {
+    padding: 8px;
+  }
+
+  footer img {
+    height: 60px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .zoobieville-logo {
+    height: 60px;
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  /* Navigation for extra small */
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  nav h3 {
+    font-size: 11px;
+    margin: 10px 0 0 0;
+  }
+
+  /* Hamburger menu for extra small */
+  .ham-menu {
+    height: 35px;
+    width: 35px;
+  }
+
+  .ham-menu span {
+    height: 3px;
+  }
+
+  /* Off-screen menu full width */
+  .off-screen-menu {
+    max-width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .off-screen-menu a {
+    margin: 12px 0;
+  }
+
+  /* Body content for small screens */
+  .standards-body {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .standards-body h2 {
+    font-size: 22px;
+    margin-bottom: 0.8rem;
+  }
+
+  .standards-body h3 {
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .standards-body p {
+    font-size: 14px;
+  }
+
+  /* Footer for small screens */
+  footer {
+    padding: 6px;
+  }
+
+  footer img {
+    height: 50px;
+  }
+
+  .copyright {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+
+  .zoobieville-logo {
+    height: 50px;
+    scale: 1;
+  }
+}
