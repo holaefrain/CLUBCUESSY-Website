@@ -7,13 +7,20 @@
 
 /* video background */
 .video-container {
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  z-index: -1;
 }
 .video-overlay {
+  position: relative;
+  z-index: 1;
   text-align: center;
 }
 .video-overlay h1 {
@@ -39,31 +46,18 @@
 }
 .video-background {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  scale: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  object-fit: cover;
 }
 
-@media (min-aspect-ratio: 9/16) {
-  .video-background {
-    width: 100%;
-    height: auto;
-  }
-  
-}
-@media (min-aspect-ratio: 16/9) {
-  .video-background {
-    width: 100%;
-    height: auto;
-  }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-background {
-    width: auto;
-    height: 100%;
-  }
-}
+
 
 /* Event Poster Image + Button */
 .video-overlay img {
@@ -104,10 +98,20 @@
 }
 
 /* hamburger */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
 nav {
   padding: 1rem;
   display: flex;
   /* background-color: rgba(0, 0, 0, 0.239); */
+}
+nav a {
+  text-decoration: none;
 }
 nav h1 {
   color: white;
@@ -167,9 +171,8 @@ nav h3 {
 footer {
   text-align: center;
   padding: 10px;
-  bottom: 0;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 footer img {
   height: 80px;
