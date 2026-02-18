@@ -302,7 +302,7 @@ audio {
 @media (max-width: 480px) {
   /* Extra small devices */
   .video-overlay h1 {
-    font-size: 36px;
+    font-size: 24px;
     margin-bottom: 20px;
   }
 
@@ -313,7 +313,7 @@ audio {
 
   /* Event poster image for small screens */
   .video-overlay img {
-    width: 150px;
+    width: 250px;
     margin-bottom: 12px;
   }
 
@@ -323,7 +323,7 @@ audio {
   }
 
   nav h1 {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   nav h3 {
