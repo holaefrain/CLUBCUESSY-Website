@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 
 // IMPORTANT: Replace with your actual Stripe secret key
-const stripe = require('stripe')('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');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -41,7 +43,7 @@ app.post('/create-payment-intent', async (req, res) => {
 app.post('/webhook', express.raw({type: 'application/json'}), async (req, res) => {
   const sig = req.headers['stripe-signature'];
   // Replace with your webhook secret from Stripe Dashboard
-  const webhookSecret = 'whsec_YOUR_WEBHOOK_SECRET_HERE';
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   let event;
 
