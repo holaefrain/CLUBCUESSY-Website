@@ -4,51 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="homestyle.css" />
-
     <title>CLUBCUESSY</title>
-
   </head>
 
-  <!-- Enter screen overlay -->
-  <div id="enter-screen">
-    <button id="enter-btn" onclick="enterSite()">ENTER</button>
-  </div>
+  <body>
 
-  <header>
-    <div class="off-screen-menu">
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="../Standards/standards.html">Standards of Movement</a></li>
-        <li>
-          <a href="../Upcoming-Events/upcomingevents.html">Upcoming Events</a>
-        </li>
-        <!-- <li><a href="../Articles/articles.html">Articles</a></li> -->
-        <li><a href="../Contact/contact.html">Contact</a></li>
-        <li><a href="../Archives/archives.html">Archive</a></li>
-      </ul>
+    <!-- Enter screen overlay -->
+    <div id="enter-screen">
+      <button id="enter-btn" onclick="enterSite()">ENTER</button>
     </div>
 
-    <nav>
-      <a href="home.html"></a><h1>CLUBCUESSY</h1>
-      <div class="ham-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+    <header>
+      <div class="off-screen-menu">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="../Standards/standards.html">Standards of Movement</a></li>
+          <li>
+            <a href="../Upcoming-Events/upcomingevents.html">Upcoming Events</a>
+          </li>
+          <!-- <li><a href="../Articles/articles.html">Articles</a></li> -->
+          <li><a href="../Contact/contact.html">Contact</a></li>
+          <li><a href="../Archives/archives.html">Archive</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
 
-  <!-- Video Section -->
-  <body>
+      <nav>
+        <a href="home.html"><h1>CLUBCUESSY</h1></a>
+        <div class="ham-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Video Section -->
     <div class="video-container">
       <div>
-        <video autoplay muted loop plays-inline class="video-background">
-          <source src="vid/website-background-video.mp4" type="video/mp4" /> 
+        <video autoplay muted loop playsinline class="video-background">
+          <source src="vid/website-background-video.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="video-overlay">
         <h1>UPCOMING EVENTS</h1>
-        <a img href="../Upcoming-Events/upcomingevents.html">
+        <a href="../Upcoming-Events/upcomingevents.html">
           <img
             class="event-poster"
             src="../Upcoming-Events/img/FEB26 Poster_1.jpg"
@@ -57,49 +56,50 @@
         </a>
       </div>
     </div>
-  </body>
 
     <footer>
       <div class="copyright">
-    <p>&copy; 2026 CLUBCUESSY. All rights reserved.</p>
+        <p>&copy; 2026 CLUBCUESSY. All rights reserved.</p>
       </div>
-    <div class="background-music">
-      <audio controls autoplay loop>
-        <!-- <source src="audio/clubcuessy.wav" type="audio/mpeg" /> -->
-        // Add audio source here
-      </audio>
-    </div>
-    <div class="smc-image">
-       <a img href="../Upcoming-Events/clubcuessy-jan-26.html">
+      <div class="background-music">
+        <audio controls autoplay loop>
+          <!-- <source src="audio/clubcuessy.wav" type="audio/mpeg" /> -->
+        </audio>
+      </div>
+      <div class="smc-image">
+        <a href="../Upcoming-Events/clubcuessy-jan-26.html">
           <img
             class="smc-logo"
             src="img/smc_logo.png"
             alt="Saturday Morning Cartoons Logo"
           />
         </a>
-        <a img href="../Upcoming-Events/clubcuessy-jan-26.html">
+        <a href="../Upcoming-Events/clubcuessy-jan-26.html">
           <img
             class="zoobieville-logo"
             src="img/Zoobieville_logoBW.png"
             alt="Zoobieville Records Logo"
           />
         </a>
-    </div>
-    <div style="position: fixed; left: -9999px;">
-      <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2193099458%3Fsecret_token%3Ds-rwj0ISFQ28x&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe>
-    </div>
-  </footer>
-  <script src="https://w.soundcloud.com/player/api.js"></script>
-  <script src="home.js"></script>
-  <script>
-    const widget = SC.Widget(document.getElementById('sc-player'));
+      </div>
+      <div style="position: fixed; left: -9999px;">
+        <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2193099458%3Fsecret_token%3Ds-rwj0ISFQ28x&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe>
+      </div>
+    </footer>
 
-    function enterSite() {
-      widget.bind(SC.Widget.Events.READY, () => {
-        widget.play();
-      });
-      document.getElementById('enter-screen').style.display = 'none';
-    }
-  </script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="home.js"></script>
+    <script>
+      const widget = SC.Widget(document.getElementById('sc-player'));
+
+      function enterSite() {
+        widget.bind(SC.Widget.Events.READY, () => {
+          widget.play();
+        });
+        document.getElementById('enter-screen').style.display = 'none';
+      }
+    </script>
+
+  </body>
 </html>
