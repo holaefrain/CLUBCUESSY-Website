@@ -8,7 +8,7 @@ Live site: [www.clubcuessy.com](https://www.clubcuessy.com)
 
 ## About
 
-CLUBCUESSY is a medium in which art and music can coincide within each other. We are an independent music event organization dedicated to creating immersive, judgment-free dance experiences. Built on three core principles — the Rite of Dance, the Law of Liberation, and the Anonymous Performance Act — every event is designed to strip away ego and connect people through sound and movement.
+CLUBCUESSY is a medium in which art and music can coincide within each other. We are an independent music event organization dedicated to creating immersive, judgment-free dance experiences. Built on three core principles — the Rite of Dance, the Law of Liberation, and the Anonymous Performance Act — every event is designed to strip away ego and connect people through sound and movement. Want to help me out in some features? Let's chat :)
 
 ---
 
