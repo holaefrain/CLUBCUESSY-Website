@@ -82,7 +82,6 @@ CLUBCUESSY-Website/
 ├── Contact/
 ├── server.js
 ├── index.html
-└── .env (not committed)
 ```
 
 ---
