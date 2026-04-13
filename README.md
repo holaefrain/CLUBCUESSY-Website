@@ -51,16 +51,6 @@ cd CLUBCUESSY-Website
 npm install
 ```
 
-### Environment Variables
-
-Create a `.env` file in the root directory:
-```
-STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-```
-
-> Never commit your `.env` file. It is already listed in `.gitignore`.
-
 ### Running Locally
 ```bash
 npm start
