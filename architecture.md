@@ -20,7 +20,7 @@ Pages serves one static `index.html`. When someone drops a link to a specific ev
 *Options:* accept it · prerender routes at build time (`vite-react-ssg`) and rebuild when you publish an event, which reintroduces a deploy step for content · move the frontend to Cloudflare Pages or Vercel later, where SSR is one config change. The architecture below doesn't change either way, so this is deferrable — but decide before Phase 8.
  
 **b) The API must live at `api.clubcuessy.com`, not a raw Railway/Render URL.**
-Admin login uses an HttpOnly session cookie. Browsers treat `www.clubcuessy.com` and `api.clubcuessy.com` as the same site (same registrable domain), so a `Domain=.clubcuessy.com; SameSite=Lax` cookie is sent on API calls. Point the frontend at `clubcuessy-api.up.railway.app` instead and the cookie is cross-site — it gets dropped, and you fall back to storing a token in `localStorage`, which is a downgrade. Add the CNAME record in Phase 0.
+Admin login uses an HttpOnly session cookie. Browsers treat `www.clubcuessy.com` and `api.clubcuessy.com` as the same site (same registrable domain), so a `Domain=.clubcuessy.com; SameSite=Lax` cookie is sent on API calls. Point the frontend at a raw `xxxxxxxxxx.execute-api.us-east-1.amazonaws.com` URL instead and the cookie is cross-site — it gets dropped, and you fall back to storing a token in `localStorage`, which is a downgrade. Add the CNAME record in Phase 0.
  
 **c) Client-side routing needs a fallback.**
 Deep links like `/events/summer-solstice` 404 on Pages unless `dist/404.html` is a copy of `index.html`. One line in the build script. Also keep `CNAME` in `public/` or Pages drops the custom domain on every deploy.
@@ -41,7 +41,7 @@ clubcuessy/
 │   │       ├── components/     # ui/ (shadcn) + site-specific
 │   │       ├── lib/trpc.ts     # typed client
 │   │       └── styles/
-│   └── api/                    # Hono + tRPC → Railway/Render/Fly
+│   └── api/                    # Hono + tRPC → AWS Lambda (API Gateway)
 │       └── src/
 │           ├── index.ts        # Hono app, CORS, mount points
 │           ├── trpc/           # routers: public + admin
@@ -60,8 +60,8 @@ clubcuessy/
 |---|---|---|
 | Package manager | pnpm workspaces | Cheapest monorepo that works; no Turbo needed at this size |
 | Postgres | Neon (free tier) | No server to babysit; branching is useful for migrations |
-| Driver | `postgres.js` + `drizzle-orm/postgres-js` | Full transaction support over TCP; you're on a Node server, not edge |
-| Hono adapter | `@hono/node-server` | Matches a container host |
+| Driver | `postgres.js` + `drizzle-orm/postgres-js`, via Neon's **pooled** connection string | Full transaction support over TCP; Lambda is still a Node runtime (unlike edge), but each concurrent invocation opens its own connection, so use the pooled endpoint or you'll exhaust Postgres's connection limit under any real concurrency |
+| Hono adapter | `hono/aws-lambda` | Official Lambda adapter; no server process to run, and the free tier is permanent (1M requests/month), not a trial |
 | tRPC ↔ Hono | `@hono/trpc-server` | Official middleware; mounts the tRPC handler on a Hono route |
 | Auth | Hand-rolled sessions (~100 lines) | One or two admins; `better-auth` is more machinery than this needs |
 | Password hashing | `@node-rs/argon2` | Fast, no native build headaches |
@@ -146,12 +146,14 @@ Plain Hono routes outside tRPC: `POST /webhooks/stripe`, `POST /auth/login`, `PO
 Estimates assume solo work, focused sessions. Each phase ends in something you can actually check.
  
 ### Phase 0 — Groundwork · ~half a day
-Provision Neon and grab the connection string. Add the `api.clubcuessy.com` CNAME at your DNS provider. Strip `node_modules/` and `.DS_Store` from the repo, write a real `.gitignore`. Audit git history for leaked keys; rotate anything questionable. Decide: new repo, or rebuild in a branch of the existing one (recommend a branch — you keep the history and the Pages config).
+Provision Neon and grab the connection string (use the **pooled** connection string, not the direct one — see §2 driver note). Request an ACM certificate for `api.clubcuessy.com` (validate it via the CNAME record ACM gives you), then create the API Gateway custom domain and add the `api.clubcuessy.com` CNAME at your DNS provider pointing at the target hostname API Gateway assigns. Strip `node_modules/` and `.DS_Store` from the repo, write a real `.gitignore`. Audit git history for leaked keys; rotate anything questionable. Decide: new repo, or rebuild in a branch of the existing one (recommend a branch — you keep the history and the Pages config).
  
 **Done when:** you can `psql` into Neon and the repo is clean.
+
+**Deferred:** DNS (ACM validation CNAME + API Gateway custom domain CNAME for `api.clubcuessy.com`) is on hold — using local Postgres for now instead of Neon too. Both need to be picked back up before Phase 8 deploy.
  
 ### Phase 1 — Monorepo skeleton · ~1 day
-pnpm workspace. `apps/web` scaffolded with Vite + React + TS, Tailwind, shadcn init. `apps/api` with Hono, `@hono/node-server`, tRPC v11, CORS middleware allowlisting `https://www.clubcuessy.com` and `http://localhost:5173`. `packages/db` and `packages/shared` wired into both. Shared `tsconfig.base.json`, one linter.
+pnpm workspace. `apps/web` scaffolded with Vite + React + TS, Tailwind, shadcn init. `apps/api` with Hono, `hono/aws-lambda`, tRPC v11, CORS middleware allowlisting `https://www.clubcuessy.com` and `http://localhost:5173`. Local dev still runs the Hono app over plain HTTP (e.g. `@hono/node-server` in a small dev-only entrypoint) so `pnpm dev` doesn't require deploying to Lambda to iterate. `packages/db` and `packages/shared` wired into both. Shared `tsconfig.base.json`, one linter.
  
 **Done when:** `pnpm dev` runs both apps, and a `health` tRPC query round-trips to the browser with full type inference — hover the result and see the API's return type.
  
@@ -186,7 +188,7 @@ Stripe Pricing Table stays embedded (it's the least code). Add the `/webhooks/st
 **Done when:** you can create, edit, and publish an event from the browser and see it appear on the public site without touching git.
  
 ### Phase 8 — Deploy · ~1 day
-GitHub Actions: build `apps/web`, copy `index.html` → `404.html`, keep `CNAME`, publish to Pages. API to Railway or Render, bound to `api.clubcuessy.com` with TLS. Production env vars set on both. Register the production webhook endpoint in Stripe. Point `VITE_API_URL` at the API domain.
+GitHub Actions: build `apps/web`, copy `index.html` → `404.html`, keep `CNAME`, publish to Pages. API packaged and deployed to Lambda (GitHub Actions zip/upload or a small CDK/SAM stack), fronted by the API Gateway custom domain bound to `api.clubcuessy.com` with the ACM cert from Phase 0. Production env vars set as Lambda environment variables and in the Pages build. Register the production webhook endpoint in Stripe. Point `VITE_API_URL` at the API domain.
  
 **Done when:** `www.clubcuessy.com` is serving the new build against the production API, and a deep link like `/events/<slug>` loads directly.
  
