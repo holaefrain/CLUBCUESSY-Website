@@ -1,0 +1,4 @@
+{
+  "$schema": "./apps/web/node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "oxc"]
+}

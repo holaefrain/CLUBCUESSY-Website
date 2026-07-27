@@ -6,9 +6,11 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "oxlint"
   },
   "devDependencies": {
+    "oxlint": "^1.75.0",
     "typescript": "~6.0.3"
   }
 }

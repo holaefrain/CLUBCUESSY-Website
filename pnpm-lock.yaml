@@ -39,6 +39,9 @@ importers:
       '@types/node':
         specifier: ^24.13.3
         version: 24.13.3
+      oxlint:
+        specifier: ^1.75.0
+        version: 1.75.0
       tsx:
         specifier: ^4.23.1
         version: 4.23.1
@@ -101,7 +104,7 @@ importers:
         specifier: ^6.0.3
         version: 6.0.4(vite@8.1.5(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
       oxlint:
-        specifier: ^1.71.0
+        specifier: ^1.75.0
         version: 1.75.0
       typescript:
         specifier: ~6.0.3
@@ -112,6 +115,9 @@ importers:
 
   packages/db:
     devDependencies:
+      oxlint:
+        specifier: ^1.75.0
+        version: 1.75.0
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
@@ -122,6 +128,9 @@ importers:
         specifier: ^4.4.3
         version: 4.4.3
     devDependencies:
+      oxlint:
+        specifier: ^1.75.0
+        version: 1.75.0
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
