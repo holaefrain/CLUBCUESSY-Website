@@ -8,6 +8,8 @@
     "build": "tsc -b"
   },
   "dependencies": {
+    "@clubcuessy/db": "workspace:*",
+    "@clubcuessy/shared": "workspace:*",
     "@hono/node-server": "^2.0.12",
     "hono": "^4.12.32"
   },
