@@ -3,13 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { trpc } from './lib/trpc'
 
 function App() {
   const [count, setCount] = useState(0)
+  const health = trpc.health.check.useQuery()
 
   return (
     <>
       <section id="center">
+        <p data-testid="api-health">
+          API status: {health.data ? health.data.status : 'loading…'}
+        </p>
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
