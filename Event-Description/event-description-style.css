@@ -80,6 +80,10 @@ nav h3 {
 .ham-menu span:nth-child(3) {
   top: 75%;
 }
+/* white X so it stays visible against the black open menu panel */
+.ham-menu.active span {
+  background-color: white;
+}
 .ham-menu.active span:nth-child(1) {
   top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
